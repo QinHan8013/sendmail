@@ -37,7 +37,7 @@ def save_last_index(index, index_file="last_index.txt"):
 def send_email(subject, content, to_email, from_email="lzh210802066@163.com", password="TDmi94Lv9dMP5WED"):
     message = MIMEMultipart()
     message['From'] = formataddr(["赖志辉", from_email])
-    message['To'] = formataddr(["收件人名称", to_email])
+    message['To'] = formataddr(["赖志辉", to_email])
     message['Subject'] = Header(subject, 'utf-8')
     message.attach(MIMEText(content, 'html', 'utf-8'))
 
@@ -87,3 +87,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
