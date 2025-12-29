@@ -32,4 +32,4 @@ jobs:
       # 4. 运行您的 Python 脚本
       - name: Run Python script
         run: |
-          python email.py  # 假设您的 Python 脚本路径是 scripts/send_email.py
+          python mail.py  # 假设您的 Python 脚本路径是 scripts/send_email.py
