@@ -19,8 +19,8 @@ def send_basic_email():
     sender_name = "赖志辉"                 # 发件人名称
     password = "TDmi94Lv9dMP5WED"          # 发件人邮箱授权码（不是登录密码！）
 
-    receiver_email = "adamlai6@163.com"   # 收件人邮箱
-    receiver_name = "1345623254343"       # 收件人名称
+    receiver_email = "lzh210802066@163.com"   # 收件人邮箱
+    receiver_name = "赖志辉"       # 收件人名称
 
     
     # SMTP服务器配置
@@ -76,4 +76,5 @@ def send_basic_email():
         print(f"❌ 发送失败：{e}")
 
 # 调用
+
 send_basic_email()
