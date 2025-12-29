@@ -109,7 +109,7 @@ def main():
     subject = f"每日日语单词 - {datetime.now().strftime('%Y/%m/%d')}"
     
     # 发送邮件
-    send_email(subject, email_content, "recipient_email@example.com")  # 替换为目标邮箱
+    send_email(subject, email_content, "lzh210802066@163.com")  # 替换为目标邮箱
     
     # 更新索引（更新为发送的下一个位置）
     new_index = (last_index + 10) % (len(data) - 1)
@@ -117,3 +117,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
