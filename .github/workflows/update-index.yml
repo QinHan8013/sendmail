@@ -1,0 +1,27 @@
+name: Update Index File
+
+on:
+  push:
+    paths:
+      - last_index.txt
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "your-email@example.com"
+          git add last_index.txt
+          git commit -m "Auto-update last_index.txt"
+          git push origin main
