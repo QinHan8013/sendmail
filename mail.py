@@ -54,7 +54,7 @@ def send_email(subject, content, to_email, from_email="lzh210802066@163.com", pa
 # 生成 HTML 邮件内容
 def generate_email_content(data, start_index, num_words=10):
     today = datetime.now().strftime("%Y/%m/%d")
-    content = f"<h2>今日日语单词 - {today}</h2><table border='1' cellpadding='8' cellspacing='0' style='width:100%;'><tr style='background-color:#007bff; color:#ffffff;'><th>单词</th><th>读音</th><th>意思</th></tr>"
+    content = f"<h2>今日日语单词-{today}</h2><table border='1' cellpadding='8' cellspacing='0' style='width:100%;'><tr style='background-color:#007bff; color:#ffffff;'><th>单词</th><th>读音</th><th>意思</th></tr>"
 
     for i in range(num_words):
         index = (start_index + i) % len(data)  # 循环索引
@@ -78,7 +78,7 @@ def main():
 
     # 生成邮件内容
     email_content = generate_email_content(data, last_index)
-    subject = f"每日日语单词 - {datetime.now().strftime('%Y/%m/%d')}"
+    subject = f"每日日语单词-{datetime.now().strftime('%Y/%m/%d')}"
     send_email(subject, email_content, "lzh210802066@163.com")  # 目标邮箱
 
     # 更新索引（更新为发送的下一个位置）
@@ -87,4 +87,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
