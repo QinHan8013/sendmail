@@ -7,6 +7,9 @@ import pandas as pd
 from datetime import datetime
 import os
 
+# 将索引放到 mail.py 内部（全局变量）
+current_index = 0  # 初始化索引值
+
 # 读取 Excel 文件
 def read_data(file_path="data.xlsx"):
     try:
@@ -17,22 +20,16 @@ def read_data(file_path="data.xlsx"):
         print(f"Error: {e}")
         return None
 
-# 获取上次发送的索引
-def get_last_index(index_file="last_index.txt"):
-    if os.path.exists(index_file):
-        with open(index_file, "r") as f:
-            try:
-                return int(f.read())
-            except ValueError:
-                print("Invalid index value in file.")
-                return 0
-    return 0
+# 获取上次发送的索引（直接读取全局变量）
+def get_last_index():
+    global current_index  # 使用全局变量
+    return current_index
 
-# 保存当前索引
-def save_last_index(index, index_file="last_index.txt"):
-    with open(index_file, "w") as f:
-        f.write(str(index))
-    print(f"✅ 更新索引：{index}")
+# 保存当前索引（更新全局变量）
+def save_last_index(index_value):
+    global current_index  # 更新全局变量
+    current_index = index_value  # 更新索引
+    print(f"✅ 更新索引：{index_value}")
 
 # 发送邮件函数
 def send_email(subject, content, to_email, from_email="lzh210802066@163.com", password="TDmi94Lv9dMP5WED"):
@@ -74,7 +71,7 @@ def main():
         return
 
     # 获取上次发送的索引（如果存在）
-    last_index = get_last_index()  
+    last_index = get_last_index()
     print(f"从索引 {last_index} 开始发送...")
 
     # 生成邮件内容
