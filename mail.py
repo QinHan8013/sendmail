@@ -76,7 +76,7 @@ def main():
 
     # 生成邮件内容
     email_content = generate_email_content(data, last_index)
-    subject = f"每日日语单词 - {datetime.now().strftime('%Y/%m/%d')}"
+    subject = f"每日日语单词-{datetime.now().strftime('%Y/%m/%d')}"
     send_email(subject, email_content, "lzh210802066@163.com")  # 目标邮箱
 
     # 更新索引（更新为发送的下一个位置）
@@ -85,3 +85,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
